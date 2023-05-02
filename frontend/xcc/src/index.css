@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.editor {
+  height: 500px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* .App {
+  text-align: center;
+} */
+
+
+
+
+/* Log files css */
+
+input {
+  margin-top: 0.5rem;
+
+}
+
+.log_form,
+.signup_form {
+  border-radius: 7px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  text-align: center;
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 25%;
+  position: relative;
+  top: 50px;
+
+}
+
+.signup_form {
+  top: 50px !important;
+}
+
+
+.col2 {
+
+  border-left: 1.5px solid #2C3333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
+/* End log css */
+
+
+
+/* Nav file css */
+.x {
+  color: red;
+}
+
+.cc {
+  color: white;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.navbar {
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* @media only screen and (max-width: 600px) {
+  .bd {
+    margin-top: 73px;
+  } 
+} */
+@media only screen and (min-width: 1200px) {
+  .bd {
+    margin-top: 73px;
+  }
+}
+
+.bd {
+  margin-top: 58.7px;
+}
+
+.bd_head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  margin: 0 auto;
+  text-align: center;
+
+
+
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 5%;
+}
+
+
+.bd_head {
+  background-image: url("x11.gif");
+}
+
+.bd_head h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+
+}
+
+.teams {
+  height: auto !important;
+  background-color: #DDE8F2;
+  color: black;
+}
+
+
+
+section h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+/* footer css */
+footer {
+  background-color: black;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* end of Nav css */
+
+
+
+/* contact us file css */
+
+.contact_form {
+  align-items: center;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  width: 40%;
+  padding: 2%;
+
+}
+
+
+.contact {
+  background-color: grey;
+  height: auto;
+  padding-bottom: 3%;
+}
+.contact h1{
+  font-size: 45px;
+}
+
+
+/* End of contact form css */
