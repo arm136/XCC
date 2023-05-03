@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import {
-    MDBInput,
-    MDBTextArea,
-    MDBBtn,
-} from "mdb-react-ui-kit";
+    Box,
+    Button,
+    List,
+    ListItem,
+    TextField,
+    useTheme,
+    useMediaQuery
+} from "@mui/material";
 
 export const Contact = () => {
     const [name, setName] = useState('');
@@ -32,42 +36,132 @@ export const Contact = () => {
 
     };
 
+    const theme = useTheme();
+    const isMatch = useMediaQuery(theme.breakpoints.down('md'))
+
+
     return (
-        
-        <div className="contact_form">
-            <form onSubmit={handleSubmit}>
-                <MDBInput
-                    value={name}
-                    className="mb-4"
-                    type="text"
-                    id="name"
-                    label="Name"
-                    onChange={handleNameChange}
+        <div>
+            {
+                isMatch ? (
+                    <>
+                        <Box
+                            sx={{
+                                width: 10,
+                                justifyContent: "center",
+                                display: 'flex',
+                            }}
+                            // boxShadow={20}
+                            borderRadius={5}
+                        >
+                            <List>
+                                <form onSubmit={handleSubmit}>
 
-                />
+                                    <ListItem>
+                                        <TextField
+                                            required
+                                            value={name}
+                                            id="outlined-required"
+                                            label="Name"
+                                            onChange={handleNameChange}
 
-                <MDBInput
-                    value={email}
-                    className="mb-4"
-                    type="text"
-                    id="email"
-                    label="Email"
-                    onChange={handleEmailChange}
-                />
+                                        />
+                                    </ListItem>
 
-                <MDBTextArea
-                    value={message}
-                    className="mb-4"
-                    type="text"
-                    id="message"
-                    label="Message"
-                    onChange={handleMessageChange}
-                />
+                                    <ListItem>
+                                        <TextField
+                                            required
+                                            value={email}
+                                            id="outlined-required"
+                                            label="Email"
+                                            onChange={handleEmailChange}
+                                        />
+                                    </ListItem>
 
-                <MDBBtn type="submit" block>
-                    Submit
-                </MDBBtn>
-            </form>
-        </div>
+                                    <ListItem>
+
+                                        <TextField
+                                            sx={{ width: 222 }}
+                                            required
+                                            value={message}
+                                            id="outlined-mutiline-static"
+                                            multiline
+                                            rows={4}
+                                            label="Message"
+                                            onChange={handleMessageChange}
+                                        />
+                                    </ListItem>
+
+                                    <ListItem >
+                                        <Button variant="outlined" type="submit">
+                                            Submit
+                                        </Button>
+                                    </ListItem>
+                                </form>
+                            </List>
+                        </Box>
+                    </>
+
+                ) : (
+                    <>
+                        <Box
+                            sx={{
+                                width: 500,
+                                justifyContent: "center",
+                                display: 'flex',
+                            }}
+                            boxShadow={20}
+                            borderRadius={5}
+                        >
+                            <List>
+                                <form onSubmit={handleSubmit}>
+
+                                    <ListItem>
+                                        <TextField
+                                            required
+                                            value={name}
+                                            id="outlined-required"
+                                            label="Name"
+                                            onChange={handleNameChange}
+
+                                        />
+                                    </ListItem>
+
+                                    <ListItem>
+                                        <TextField
+                                            required
+                                            value={email}
+                                            id="outlined-required"
+                                            label="Email"
+                                            onChange={handleEmailChange}
+                                        />
+                                    </ListItem>
+
+                                    <ListItem>
+
+                                        <TextField
+                                            sx={{ width: 222 }}
+                                            required
+                                            value={message}
+                                            id="outlined-mutiline-static"
+                                            multiline
+                                            rows={4}
+                                            label="Message"
+                                            onChange={handleMessageChange}
+                                        />
+                                    </ListItem>
+
+                                    <ListItem >
+                                        <Button type="submit" variant="outlined">
+                                            Submit
+                                        </Button>
+                                    </ListItem>
+                                </form>
+                            </List>
+                        </Box>
+                    </>
+                )
+            }
+        </div >
     );
 };

@@ -2,11 +2,13 @@ import './tmodel.css'
 import Member1 from './team_img/Member1.jpg';
 import Member2 from './team_img/Member2.jpg';
 import Member3 from './team_img/Member3.png';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import PinterestIcon from '@mui/icons-material/Pinterest';
 
- const Tmodel = () => {
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+
+const Tmodel = () => {
   return (
 
     <div id='model3'>
@@ -23,9 +25,9 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
               Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
             </p>
             <div className="social-media">
-              <a href='#'><InstagramIcon /></a>
+              <a href="#"><MailOutlineIcon /></a>
               <a href="#"><LinkedInIcon /></a>
-              <a href="#"><PinterestIcon /></a>
+              <a href='#'><PhoneOutlinedIcon /></a>
             </div>
           </div>
         </div>
@@ -39,9 +41,9 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
               Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
             </p>
             <div className="social-media">
-              <a href='#'><InstagramIcon /></a>
+              <a href="#"><MailOutlineIcon /></a>
               <a href="#"><LinkedInIcon /></a>
-              <a href="#"><PinterestIcon /></a>
+              <a href='#'><PhoneOutlinedIcon /></a>
             </div>
           </div>
         </div>
@@ -55,9 +57,9 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
               Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
             </p>
             <div className="social-media">
-              <a href='#'><InstagramIcon /></a>
+              <a href="#"><MailOutlineIcon /></a>
               <a href="#"><LinkedInIcon /></a>
-              <a href="#"><PinterestIcon /></a>
+              <a href='#'><PhoneOutlinedIcon /></a>
             </div>
           </div>
         </div>

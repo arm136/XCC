@@ -205,12 +205,13 @@ footer p {
 
 
 .contact {
-  background-color: grey;
+  background-color: #F6F1F1;
   height: auto;
   padding-bottom: 3%;
 }
 .contact h1{
   font-size: 45px;
+  color: black;
 }
 
 
