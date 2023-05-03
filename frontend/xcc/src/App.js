@@ -4,15 +4,14 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-// import { UserNav } from "./user/UserNav";
 
 import './index.css';
 import Resources from "./user/pages/Resources";
 import Playground from "./user/pages/Playground";
 import Discussion from "./user/pages/Discussion";
-// import Nav from "./landpage/pages/navigation/nav";
 import Profile from "./user/pages/ProfilePages/Profile";
-import NewNav from "./landpage/pages/navigation/NewNav";
+import NewNav from './landpage/navigation/NewNav'
+
 
 
 

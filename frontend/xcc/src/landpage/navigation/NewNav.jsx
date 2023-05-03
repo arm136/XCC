@@ -90,6 +90,7 @@ function NewNav() {
                                         </Link>
 
                                         <Link
+                                            href='#login'
                                             underline="none"
                                             sx={{ p: 0.9, color: 'white' }}
                                             onClick={() => loginWithRedirect()}
@@ -107,15 +108,15 @@ function NewNav() {
 
                 <div className='bd'>
 
-                        <header className="bd_head" id='home'>
-                            <h1>Xavier's Coding Club</h1>
-                            <p>
+                    <header className="bd_head" id='home'>
+                        <h1>Xavier's Coding Club</h1>
+                        <p>
 
-                                We are a group of coding enthusiasts who love to learn and create new things.
-                                Join us to expand your skills and build great projects together.
+                            We are a group of coding enthusiasts who love to learn and create new things.
+                            Join us to expand your skills and build great projects together.
 
-                            </p>
-                        </header>
+                        </p>
+                    </header>
 
                     <section className='events' id="events">
 

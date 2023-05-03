@@ -12,9 +12,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* coodeEditorWindow */
 .editor {
   height: 500px;
 }
+
+.edit-section section{
+  padding-top: 0;
+}
+/* ***************** */
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -209,7 +217,8 @@ footer p {
   height: auto;
   padding-bottom: 3%;
 }
-.contact h1{
+
+.contact h1 {
   font-size: 45px;
   color: black;
 }
