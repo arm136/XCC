@@ -1,14 +1,29 @@
 import './tmodel.css'
-import Member1 from './team_img/Member1.jpg';
-import Member2 from './team_img/Member2.jpg';
-import Member3 from './team_img/Member3.png';
+
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
 const Tmodel = () => {
+
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8081/teams")
+      .then((res) => {
+        if (res.data.Status === "success") {
+          console.log(res.data.Result);
+          setData(res.data.Result);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
 
     <div id='model3'>
@@ -16,53 +31,31 @@ const Tmodel = () => {
       <div className="divider"></div>
       <div className="members">
 
-        <div className="member">
-          <img alt="img" width={150} height={150} src={Member1} />
-          <div className="description">
-            <h1>Aman Raj Murmu</h1>
-            <h2>Web Developer</h2>
-            <p>
-              Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
-            </p>
-            <div className="social-media">
-              <a href="#"><MailOutlineIcon /></a>
-              <a href="#"><LinkedInIcon /></a>
-              <a href='#'><PhoneOutlinedIcon /></a>
-            </div>
-          </div>
-        </div>
 
-        <div className="member">
-          <img alt="img" width={150} height={150} src={Member2} />
-          <div className="description">
-            <h1>Rohit Kumar</h1>
-            <h2>Web Developer</h2>
-            <p>
-              Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
-            </p>
-            <div className="social-media">
-              <a href="#"><MailOutlineIcon /></a>
-              <a href="#"><LinkedInIcon /></a>
-              <a href='#'><PhoneOutlinedIcon /></a>
+        {data.map((events, index) => {
+          return (
+            <div className="member">
+              <img alt="img" src={`http://localhost:8081/pdf/`+events.image} 
+              style={{
+                height: "150px",
+                width: "150px",
+              }}
+              />
+              <div className="description" key={index}>
+                
+                <h1>{events.name}</h1>
+                <h2>{events.title}</h2>
+                <h2 className='mobile'><PhoneOutlinedIcon /> +91 {events.mobile}</h2>
+                <div className="social-media">
+                  <a href={`mailto:${events.email}`}><MailOutlineIcon /></a>
+                  <a href={`${events.linkdin}`}><LinkedInIcon /></a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )
+        })}
 
-        <div className="member">
-          <img alt="img" width={150} height={150} src={Member3} />
-          <div className="description">
-            <h1>Khaled MAHER</h1>
-            <h2>CEO</h2>
-            <p>
-              Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. Lorem ipsum dolor sit amet consectet.
-            </p>
-            <div className="social-media">
-              <a href="#"><MailOutlineIcon /></a>
-              <a href="#"><LinkedInIcon /></a>
-              <a href='#'><PhoneOutlinedIcon /></a>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>

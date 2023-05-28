@@ -15,8 +15,9 @@ import ListItemText from '@mui/material/ListItemText';
 import SourceIcon from '@mui/icons-material/Source';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import ForumIcon from '@mui/icons-material/Forum';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppStore } from './appStore';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
 const drawerWidth = 240;
 
@@ -106,12 +107,14 @@ export default function Sidenav() {
         <Divider />
         <List>
           <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Resources") }}>
+            {/* <ListItem disablePadding sx={{ display: 'block' }} > */}
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
-              }}>
+              }}
+            >
 
               <ListItemIcon
                 sx={{
@@ -125,6 +128,7 @@ export default function Sidenav() {
               <ListItemText primary="Resources" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+
           <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Playground") }}>
             <ListItemButton
               sx={{
@@ -145,7 +149,31 @@ export default function Sidenav() {
               <ListItemText primary="My Playground" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Discussion") }}>
+
+          <ListItem disablePadding sx={{ display: 'block' }}>
+            <Link to="https://leaderboardhq.com/6zmkc03y" target="blank">
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <LeaderboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Leaderboard" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+
+          {/* <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Discussion") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -164,27 +192,9 @@ export default function Sidenav() {
               </ListItemIcon>
               <ListItemText primary="Discussion Forums" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate("/Compiler") }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <TerminalIcon />    {/*icon*/}
-              </ListItemIcon>
-              <ListItemText primary="Compiler" sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
+          </ListItem> */}
+
+          
         </List>
       </Drawer>
 

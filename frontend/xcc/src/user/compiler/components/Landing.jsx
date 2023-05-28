@@ -137,6 +137,7 @@ const Landing = () => {
       .catch((err) => {
         let error = err.response ? err.response.data : err;
         // get error status
+        console.log('yha tk thik h');
         let status = err.response.status;
         console.log("status", status);
         if (status === 429) {

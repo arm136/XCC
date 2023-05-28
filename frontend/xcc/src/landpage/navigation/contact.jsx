@@ -6,8 +6,10 @@ import {
     ListItem,
     TextField,
     useTheme,
-    useMediaQuery
+    useMediaQuery,
+    Stack
 } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
 
 export const Contact = () => {
     const [name, setName] = useState('');
@@ -47,7 +49,7 @@ export const Contact = () => {
                     <>
                         <Box
                             sx={{
-                                width: 10,
+                                // width: 10,
                                 justifyContent: "center",
                                 display: 'flex',
                             }}
@@ -92,74 +94,69 @@ export const Contact = () => {
                                         />
                                     </ListItem>
 
-                                    <ListItem >
-                                        <Button variant="outlined" type="submit">
-                                            Submit
-                                        </Button>
-                                    </ListItem>
+                                    <Button variant="outlined" type="submit">
+                                        Submit
+                                    </Button>
                                 </form>
                             </List>
                         </Box>
                     </>
 
                 ) : (
-                    <>
+                    <Box>
                         <Box
                             sx={{
                                 width: 500,
-                                justifyContent: "center",
-                                display: 'flex',
                             }}
                             boxShadow={20}
                             borderRadius={5}
+                            display={'flex'}
+                            padding={2}
+                            justifyContent={'center'}
                         >
-                            <List>
-                                <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
 
-                                    <ListItem>
-                                        <TextField
-                                            required
-                                            value={name}
-                                            id="outlined-required"
-                                            label="Name"
-                                            onChange={handleNameChange}
+                                <Stack spacing={2}>
 
-                                        />
-                                    </ListItem>
 
-                                    <ListItem>
-                                        <TextField
-                                            required
-                                            value={email}
-                                            id="outlined-required"
-                                            label="Email"
-                                            onChange={handleEmailChange}
-                                        />
-                                    </ListItem>
+                                    <TextField
+                                        required
+                                        value={name}
+                                        id="outlined-required"
+                                        label="Name"
+                                        onChange={handleNameChange}
 
-                                    <ListItem>
+                                    />
 
-                                        <TextField
-                                            sx={{ width: 222 }}
-                                            required
-                                            value={message}
-                                            id="outlined-mutiline-static"
-                                            multiline
-                                            rows={4}
-                                            label="Message"
-                                            onChange={handleMessageChange}
-                                        />
-                                    </ListItem>
+                                    <TextField
+                                        required
+                                        value={email}
+                                        id="outlined-required"
+                                        label="Email"
+                                        onChange={handleEmailChange}
+                                    />
 
-                                    <ListItem >
-                                        <Button type="submit" variant="outlined">
-                                            Submit
-                                        </Button>
-                                    </ListItem>
-                                </form>
-                            </List>
+
+                                    <TextField
+                                        sx={{ width: 222 }}
+                                        required
+                                        value={message}
+                                        id="outlined-mutiline-static"
+                                        multiline
+                                        rows={4}
+                                        label="Message"
+                                        onChange={handleMessageChange}
+                                    />
+
+
+                                    <Button type="submit" variant="contained" endIcon={<SendIcon/>}>
+                                        Submit
+                                    </Button>
+                                </Stack>
+                            </form>
+
                         </Box>
-                    </>
+                    </Box>
                 )
             }
         </div >

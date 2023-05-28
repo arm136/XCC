@@ -10,11 +10,19 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 const DrawerComp = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const { loginWithRedirect } = useAuth0();
     // const []
+    
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        navigate('/start');
+    }
+
+
     return (
         <React.Fragment>
             <SwipeableDrawer open={openDrawer}
@@ -56,7 +64,7 @@ const DrawerComp = () => {
                     </ListItemButton>
 
                     <ListItemButton>
-                        <ListItemText onClick={() => loginWithRedirect()}>Login</ListItemText>
+                        <ListItemText  onClick={(handleClick)}>Login</ListItemText>
                     </ListItemButton>
                 </List>
             </SwipeableDrawer>

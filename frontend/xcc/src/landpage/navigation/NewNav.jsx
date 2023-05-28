@@ -8,24 +8,32 @@ import {
     useMediaQuery,
     useTheme
 } from '@mui/material';
-import { Events } from './events/Events';
+import { NavEvents } from './events/NavEvents';
 import Tmodel from './teams/tmodel';
 import { Contact } from './contact';
 import DrawerComp from './DrawerComp';
-import { useAuth0 } from "@auth0/auth0-react";
+
+import { useNavigate } from 'react-router-dom';
+import FGallery from './FGallery';
 
 
 function NewNav() {
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'))
-    const { loginWithRedirect } = useAuth0();
+
+
+
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        navigate('/start');
+    }
 
 
 
     return (
         <>
-            <Box sx={{ flexGrow: "auto" }}>
+            <Box >
                 <AppBar
                     position="fixed"
                     sx={{ backgroundColor: 'black' }}>
@@ -80,6 +88,16 @@ function NewNav() {
                                         </Link>
 
                                         <Link
+                                            href="#gallery"
+                                            underline="none"
+                                            sx={{ p: 0.9, color: 'white' }}
+                                            smooth={true}
+                                            duration={500}
+                                        >
+                                            Gallery
+                                        </Link>
+
+                                        <Link
                                             href="#contact"
                                             underline="none"
                                             sx={{ p: 0.9, color: 'white' }}
@@ -88,12 +106,12 @@ function NewNav() {
                                         >
                                             Contact
                                         </Link>
-
                                         <Link
-                                            href='#login'
+                                            // href='#login'
                                             underline="none"
                                             sx={{ p: 0.9, color: 'white' }}
-                                            onClick={() => loginWithRedirect()}
+                                            // onClick={() => loginWithRedirect()}
+                                            onClick={(handleClick)}
                                         >
                                             Login
                                         </Link>
@@ -122,11 +140,17 @@ function NewNav() {
 
                         <h1>Events</h1>
                         <div className="divider"></div>
-                        <Events />
+                        <NavEvents />
                     </section>
 
                     <section className='teams' id="teams">
                         <Tmodel />
+                    </section>
+
+                    <section className='fgallery' id="gallery">
+                    <h1>Gallery</h1>
+                    <div className="divider"></div>
+                        <FGallery/>
                     </section>
 
                     <section className='contact' id="contact">

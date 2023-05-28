@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from "react";
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,8 +14,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useAppStore } from './appStore';
-import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -54,14 +54,50 @@ export default function Navbar() {
   };
 
 
-  // Auth0 Logout
-  const { logout } = useAuth0();
 
   //Profile
+
   const navigate = useNavigate();
-  const handleProfileOpen =(e) => {
-    navigate('/Profile');
+  // const handleProfileOpen = () => {
+
+  //   useEffect(() => {
+  //     axios.get('http://localhost:8081/Profile')
+  //       .then(res => {
+  //         if (res.data.Status === 'Success') {
+  //           if (res.data.role === 'user') {
+  //             const id = res.data.id;
+  //             navigate('/Profile/' + id);
+  //           }
+  //         } else {
+  //           navigate('/start');
+  //           console.log('Access Denied!');
+  //         }
+  //       });
+  //   }, [navigate]);
+  // }
+
+  axios.defaults.withCredentials = true;
+  const handleProfileOpen = (event) => {
+    event.preventDefault();
+  
+    axios.get('http://localhost:8081/Profile/:id')
+      .then(res => {
+        if (res.data.Status === "Success") {
+          if (res.data.role === "user") {
+            const id = res.data.id;
+            navigate('/Profile/' + id);
+          }
+        }
+      })
   };
+
+  const handleLogout = () => {
+    axios.get('http://localhost:8081/logout')
+      .then(res => {
+        navigate('/NewNav')
+      }).catch(err => console.log(err));
+    console.log('clicked');
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -81,8 +117,8 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={(handleProfileOpen)}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</MenuItem>
+      {/* <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
+      <MenuItem onClick={(handleLogout)}>Logout</MenuItem>
     </Menu>
   );
 
@@ -154,7 +190,7 @@ export default function Navbar() {
           </IconButton>
           <Typography
             variant="h4"
-            sx={{ p: 0.9}}
+            sx={{ p: 0.9 }}
           >
             <span className="x">X</span>
             <span className="cc">CC</span>
