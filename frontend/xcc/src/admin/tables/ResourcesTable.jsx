@@ -20,23 +20,26 @@ function ResourcesTable() {
       .catch((err) => console.log(err));
   }, []);
 
-  // const handleDelete = (id => {
-  //   axios.delete('http://localhost:8081/deleteResources/'+id)
-  //   .then((res) => {
-  //     if (res.data.Status === "success") {
-  //       window.location.reload(true);
-  //       // setData(res.data.Result);
-  //     } 
-  //   })
-  //   .catch((err) => console.log(err));
-  // })
-
-  const handleDelete = ( id => {
+  const handleDelete = (id => {
     axios.delete('http://localhost:8081/deleteResources/'+id)
     .then((res) => {
-      if(res)
+      if (res.data.Status === "success") {
+        window.location.reload(true);
+        // setData(res.data.Result);
+      } 
     })
-  } )
+    .catch((err) => console.log(err));
+  })
+
+  // const handleDelete = ( id => {
+  //   axios.delete('http://localhost:8081/deleteResources/'+id)
+  //   .then((res) => {
+  //     if(res.data.Status === "success"){
+  //       const id = res.data.id;
+  //       window.location.reload(true);
+  //     }
+  //   }).catch((err)=>console.log(err));
+  // } )
 
   const openPDF = (id) => {
     window.open(`http://localhost:8081/resources/${id}`, '_blank');
