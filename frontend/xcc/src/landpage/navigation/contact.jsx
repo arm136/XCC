@@ -57,7 +57,8 @@ export const Contact = () => {
                             borderRadius={5}
                         >
                             <List>
-                                <form onSubmit={handleSubmit}>
+                                {/* <form onSubmit={handleSubmit}> */}
+                                <form>
 
                                     <ListItem>
                                         <TextField
@@ -94,7 +95,7 @@ export const Contact = () => {
                                         />
                                     </ListItem>
 
-                                    <Button variant="outlined" type="submit">
+                                    <Button href={`mailto:admin123@gmail.com`} variant="outlined" type="submit">
                                         Submit
                                     </Button>
                                 </form>
@@ -114,7 +115,9 @@ export const Contact = () => {
                             padding={2}
                             justifyContent={'center'}
                         >
-                            <form onSubmit={handleSubmit}>
+                            {/* <form onSubmit={handleSubmit}> */}
+                            <form>
+
 
                                 <Stack spacing={2}>
 
@@ -149,7 +152,7 @@ export const Contact = () => {
                                     />
 
 
-                                    <Button type="submit" variant="contained" endIcon={<SendIcon/>}>
+                                    <Button href={`mailto:admin123@gmail.com`} type="submit" variant="contained" endIcon={<SendIcon/>}>
                                         Submit
                                     </Button>
                                 </Stack>
